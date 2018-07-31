@@ -25,10 +25,10 @@ const todosReducer = (state = initialState, action) => {
         newTodos[todo.id] = todo;
       });
       return newTodos;
-    // case RECEIVE_TODO:
-    //   return {
-    //     // todo: action.todo
-    //   };
+    case RECEIVE_TODO:
+      let newTodo = merge({}, state);
+      newTodo[action.todo.id] = action.todo;
+      return newTodo;
     default:
     return state;
   }
